@@ -4,59 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Method_Class_Assignment_Submission
+namespace Polymorphism_Assignment_Submission
 {
 
-    //Create a class
-
-    class MathOperations 
+    class Program
 
     {
-        // Create a void method that takes two integers as parameters
-
-        public void PerformOperation(int num1, int num2) 
-
+        // 1. Create an interface called IQuittable
+        interface IQuittable
         {
-
-            // Do a math operation on the first integer (e.g., multiply by 5) 
-
-            int result = num1 * 5; 
-
-
-            // Display the second integer to the screen
-
-            Console.WriteLine("The second number is: " + num2);
-
+            // Define a void method called Quit()
+            void Quit();
         }
 
-    }
 
-     class Program
-
-    {
-        static void Main(string[] args)
-
+        // 2. Have your Employee class inherit the IQuittable interface
+        class Employee : IQuittable
         {
-            // Instantiate the class in the Main() method
-
-            MathOperations mathOps = new MathOperations(); 
-
-
-            // Call the method, passing in two numbers
-
-            mathOps.PerformOperation(10, 20); // Passing 10 and 20 as arguments 
+            // Properties of the Employee class
+            public string FirstName { get; set; } // Employee's first name
+            public string LastName { get; set; }  // Employee's last name
+            public int Id { get; set; }   // Employee's unique identifier
 
 
-            //  Call the method, specifying the parameters by name
-
-            mathOps.PerformOperation(num2: 30, num1: 5); // Specifying parameters by name
-
-
-            // Keep the console window open until a key is pressed
-
-            Console.ReadKey();
-
+            // Implement the Quit() method from the IQuittable interface
+            public void Quit()
+            {
+                // Implementation of the Quit() method: display a message to the console
+                Console.WriteLine("Employee has quit the company.");
+            }
         }
+         
+        
+            static void Main(string[] args)
+            {
+                // 3. Use polymorphism to create an object of type IQuittable
+                IQuittable quittable = new Employee(); // Create an Employee object and assign it to an IQuittable interface
 
+
+                // Call the Quit() method on the IQuittable object
+                quittable.Quit(); // Execute the Quit() method, which will display the message
+
+
+                Console.ReadLine(); // Keep the console window open until a key is pressed
+            }
+        }
     }
-} 
+
+
+
