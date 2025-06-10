@@ -1,40 +1,62 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace StudentDailyReport
+namespace Method_Class_Assignment_Submission
 {
-    class Program
+
+    //Create a class
+
+    class MathOperations 
+
     {
-        static void Main(string[] args)
+        // Create a void method that takes two integers as parameters
+
+        public void PerformOperation(int num1, int num2) 
+
         {
 
-            Console.WriteLine("Academy of Learning Career College \nStudent Daily Report");
-            Console.WriteLine("What is your name ?");
-            string name=Console.ReadLine();
-            Console.WriteLine("What course are you in ?");
-            string course=Console.ReadLine();
-            Console.WriteLine("What page number ?");
-            int pageNum = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Do you need help with anything ?  Please answer \"true\" or \"false\".");
-            string needHelp = Console.ReadLine();
-            bool needHelpBool = bool.Parse(needHelp);
-            Console.WriteLine("Were there any positive experiences you'd like to share ? Please give specifics.");
-            string positiveExperiences = Console.ReadLine();
-            Console.WriteLine("Is there any other feedback you'd like to provide ? Please be specifics");
-            string feedback = Console.ReadLine();
-            Console.WriteLine("How many hours did you study today?");
-            string studyhours = Console.ReadLine();
-            int studyHoursNum = Convert.ToInt32(studyhours);
-            Console.WriteLine("Thank you for your answers. An instructor will respond to this shortly. Have a great day!");
-            Console.ReadLine();
-            
+            // Do a math operation on the first integer (e.g., multiply by 5) 
+
+            int result = num1 * 5; 
 
 
+            // Display the second integer to the screen
 
-
-
-
+            Console.WriteLine("The second number is: " + num2);
 
         }
+
     }
-}
+
+     class Program
+
+    {
+        static void Main(string[] args)
+
+        {
+            // Instantiate the class in the Main() method
+
+            MathOperations mathOps = new MathOperations(); 
+
+
+            // Call the method, passing in two numbers
+
+            mathOps.PerformOperation(10, 20); // Passing 10 and 20 as arguments 
+
+
+            //  Call the method, specifying the parameters by name
+
+            mathOps.PerformOperation(num2: 30, num1: 5); // Specifying parameters by name
+
+
+            // Keep the console window open until a key is pressed
+
+            Console.ReadKey();
+
+        }
+
+    }
+} 
