@@ -4,164 +4,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Define the namespace for the application
-namespace Operators_Assignment
+namespace Method_Class_Assignment_Submission
 {
-    // Define the Employee class
 
-    class Employee
+    //Create a class
+
+    class MathOperations 
 
     {
+        // Create a void method that takes two integers as parameters
 
-
-        // Properties of the Employee class: Id, FirstName, and LastName
-
-        public int Id { get; set; } // Employee ID
-
-        public string FirstName { get; set; } // Employee's first name
-
-        public string LastName { get; set; } // Employee's last name
-
-
-
-        // Overload the "==" operator to compare two Employee objects based on their Id
-
-        public static bool operator ==(Employee emp1, Employee emp2)
+        public void PerformOperation(int num1, int num2) 
 
         {
 
-            // If both objects are null, they are considered equal
+            // Do a math operation on the first integer (e.g., multiply by 5) 
 
-            if (ReferenceEquals(emp1, emp2))
-
-            {
-
-                return true;
-
-            }
+            int result = num1 * 5; 
 
 
+            // Display the second integer to the screen
 
-            // If either object is null, they are not equal
-
-            if (ReferenceEquals(emp1, null) || ReferenceEquals(emp2, null))
-
-            {
-
-                return false;
-
-            }
-
-
-
-            // Compare the Id properties of the two Employee objects
-
-            return emp1.Id == emp2.Id;
-
-        }
-
-
-
-        // Overload the "!=" operator.  It should always be overloaded when "==" is overloaded.
-
-        public static bool operator !=(Employee emp1, Employee emp2)
-
-        {
-
-            // Use the overloaded "==" operator to determine inequality
-
-            return !(emp1 == emp2);
-
-        }
-
-
-
-        // Override the Equals method to provide object equality comparison.
-
-        public override bool Equals(object obj)
-
-        {
-
-            // Check if the passed object is an Employee object
-
-            if (obj == null || GetType() != obj.GetType())
-
-            {
-
-                return false;
-
-            }
-
-
-
-            // Compare the Id properties
-
-            Employee employee = (Employee)obj;
-
-            return (Id == employee.Id);
-
-        }
-
-
-
-        // Override GetHashCode to ensure objects that are equal have the same hash code.
-
-        public override int GetHashCode()
-
-        {
-
-            return Id;
+            Console.WriteLine("The second number is: " + num2);
 
         }
 
     }
 
-class program { 
+     class Program
 
-         // Main method - entry point of the console application
+    {
+        static void Main(string[] args)
 
-            static void Main(string[] args)
+        {
+            // Instantiate the class in the Main() method
 
-            {
-
-                // Instantiate two Employee objects
-
-                Employee employee1 = new Employee();
-
-                employee1.Id = 1;
-
-                employee1.FirstName = "Michael";
-
-                employee1.LastName = "Dean";
+            MathOperations mathOps = new MathOperations(); 
 
 
+            // Call the method, passing in two numbers
 
-                Employee employee2 = new Employee();
-
-                employee2.Id = 1;
-
-                employee2.FirstName = "Daisy";
-
-                employee2.LastName = "Smith";
+            mathOps.PerformOperation(10, 20); // Passing 10 and 20 as arguments 
 
 
+            //  Call the method, specifying the parameters by name
 
-                // Compare the two Employee objects using the overloaded "==" operator
-
-                bool areEqual = employee1 == employee2;
-
+            mathOps.PerformOperation(num2: 30, num1: 5); // Specifying parameters by name
 
 
-                // Display the result of the comparison to the console
+            // Keep the console window open until a key is pressed
 
-                Console.WriteLine($"Employee1 Id: {employee1.Id}, Name: {employee1.FirstName} {employee1.LastName}");
+            Console.ReadKey();
 
-                Console.WriteLine($"Employee2 Id: {employee2.Id}, Name: {employee2.FirstName} {employee2.LastName}");
-
-                Console.WriteLine($"Are the two employees equal? {areEqual}");
-
-            }
-                    
         }
-                    
+
     }
+} 
